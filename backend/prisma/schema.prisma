@@ -1,0 +1,339 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id                      String           @id @default(uuid())
+  name                    String
+  email                   String           @unique
+  phone                   String?
+  password                String
+  balance                 Float            @default(0)
+  role                    String           @default("USER")
+  agencyLevel             Int              @default(0) // 0 = Khách thu?ng, 1-10 = Ð?i lý c?p 1 d?n 10
+  isTwoFactorEnabled      Boolean          @default(false)
+  twoFactorSecret         String?
+  isEmailVerified         Boolean          @default(false)
+  emailVerificationCode   String?
+  passwordResetToken      String?
+  passwordResetExpires    DateTime?
+  createdAt               DateTime         @default(now())
+  updatedAt               DateTime         @updatedAt
+  referralCode            String?          @unique @default(cuid())
+  referredById            String?
+  referredBy              User?            @relation("Referrals", fields: [referredById], references: [id])
+  referrals               User[]           @relation("Referrals")
+  orders                  Order[]
+  transactions            Transaction[]
+  enrollments             Enrollment[]
+  resourceOrders          ResourceOrder[]
+  loginLogs               LoginLog[]
+  referralRewardsGiven    ReferralReward[] @relation("RewardReferrer")
+  referralRewardsReceived ReferralReward[] @relation("RewardReferred")
+  chatSession             ChatSession?
+  technicianChats         ChatSession[]    @relation("TechnicianChats")
+}
+
+model LoginLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ip        String
+  device    String
+  createdAt DateTime @default(now())
+}
+
+model ServerService {
+  id               String    @id @default(uuid())
+  platform         String // facebook, tiktok, etc.
+  serviceType      String // like, follow, etc.
+  name             String
+  price            Float
+  tags             String    @default("")
+  costPrice        Float     @default(0)
+  originalPrice    Float? // GiÃ¡ gá»‘c, náº¿u cÃ³ sáº½ hiá»ƒn thá»‹ gáº¡ch bá»� trÃªn UI
+  flashSaleEndTime DateTime? // Thá»�i gian káº¿t thÃºc Flash Sale
+  min              Int
+  max              Int
+  desc             String?
+  hot              Boolean   @default(false)
+  status           String    @default("hoat_dong") // hoat_dong, bao_tri
+  apiProvider      String    @default("") // e.g. "subgiare", "1dg", or empty for manual
+  apiServiceId     String    @default("") // SMM API Package ID
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Order {
+  id          String   @id // Custom ID format like #ORD-1234
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  platform    String
+  service     String
+  target      String
+  status      String // processing, running, completed, cancelled, refund_requested
+  total       String // Stores formatted total like "150.000 Ä‘"
+  totalNum    Float    @default(0) // the numeric value for easy math
+  voucherCode String? // MÃ£ giáº£m giÃ¡ Ã¡p dá»¥ng (náº¿u cÃ³)
+  discount    Float    @default(0) // Số tiền được giảm
+  apiProvider String?  // e.g. "subgiare", "1dg"
+  apiOrderId  String?
+  apiResponse String?
+  quantity    Int      @default(1)
+  startCount  Int      @default(0)
+  remains     Int      @default(0)
+  unitPrice   Float    @default(0)
+  costPrice   Float    @default(0)
+  profit      Float    @default(0)
+  customData  String? // JSON string for custom fields like comments, reaction type
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Transaction {
+  id        String   @id // Custom ID format like #TRX-1234
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String // Cá»˜NG TIá»€N, TRá»ª TIá»€N, HOÃ€N TIá»€N
+  amount    String // e.g., "+5.000.000 â‚«"
+  balance   String // e.g., "5.000.000 â‚«"
+  desc      String
+  typeClass String // styling classes
+  createdAt DateTime @default(now())
+}
+
+model Course {
+  id            String       @id @default(uuid())
+  title         String
+  instructor    String
+  instructorId  String?
+  type          String // 'single' or 'combo'
+  tag           String
+  tagColor      String
+  importPrice   Float        @default(0)
+  originalPrice Float
+  salePrice     Float
+  status        String // 'active' or 'inactive'
+  thumbnail     String
+  videoDemo     String?
+  description   String?
+  rating        Float        @default(5.0)
+  students      String       @default("0")
+  lessons       Int          @default(0)
+  curriculum    String // JSON stringified array of strings
+  schedules     Schedule[]
+  enrollments   Enrollment[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Schedule {
+  id       String @id @default(uuid())
+  courseId String
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  name     String
+  days     String @default("")
+  time     String
+  meetLink String
+}
+
+model Enrollment {
+  id                         String   @id @default(uuid())
+  courseId                   String
+  userId                     String
+  course                     Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user                       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  completedCurriculumIndexes String // JSON stringified array of numbers
+  registeredScheduleId       String?
+  registeredScheduleIds      String   @default("[]") // JSON array of strings
+  history                    String   @default("[]") // JSON array of objects {time, action}
+  totalAmount                Float    @default(0)
+  totalImportAmount          Float    @default(0)
+  createdAt                  DateTime @default(now())
+  updatedAt                  DateTime @updatedAt
+
+  @@unique([courseId, userId])
+}
+
+model Page {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  category  String
+  content   String
+  thumbnail String
+  views     Int      @default(0)
+  status    String   @default("Báº£n nhÃ¡p")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  type      String   @default("ADMIN") // Ä�á»ƒ phÃ¢n biá»‡t vá»›i thÃ´ng bÃ¡o tá»± Ä‘á»™ng (náº¿u cáº§n sau nÃ y)
+  createdAt DateTime @default(now())
+}
+
+model Voucher {
+  id            String   @id @default(uuid())
+  code          String   @unique
+  discountType  String // 'PERCENT' or 'FIXED'
+  discountValue Float
+  minOrderValue Float    @default(0)
+  maxDiscount   Float?
+  usageLimit    Int?
+  usedCount     Int      @default(0)
+  validFrom     DateTime
+  validTo       DateTime
+  applicableTo  String   @default("ALL") // 'ALL', 'SERVICES', 'COURSES', or specific IDs
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Resource {
+  id           String   @id @default(uuid())
+  name         String
+  category     String   @default("KhÃ¡c")
+  iconPlatform String?
+  description  String?
+  thumbnail    String?
+  type         String   @default("ACCOUNT") // 'ACCOUNT' or 'LINK'
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Bá»‹ thay tháº¿ bá»Ÿi ResourceVariant, táº¡m giá»¯ Ä‘á»ƒ chuyá»ƒn dá»¯ liá»‡u
+  price     Float?
+  stockData String?
+  soldCount Int     @default(0)
+
+  variants ResourceVariant[]
+  orders   ResourceOrder[]
+}
+
+model ResourceVariant {
+  id          String          @id @default(uuid())
+  resourceId  String
+  name        String          @default("Máº·c Ä‘á»‹nh")
+  importPrice Float           @default(0)
+  price       Float
+  stockData   String          @default("")
+  soldCount   Int             @default(0)
+  resource    Resource        @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  orders      ResourceOrder[]
+}
+
+model ResourceOrder {
+  id                String           @id
+  userId            String
+  resourceId        String
+  variantId         String?
+  quantity          Int
+  totalAmount       Float
+  totalImportAmount Float            @default(0)
+  deliveredData     String // The lines given to the user
+  createdAt         DateTime         @default(now())
+  user              User             @relation(fields: [userId], references: [id])
+  resource          Resource         @relation(fields: [resourceId], references: [id])
+  variant           ResourceVariant? @relation(fields: [variantId], references: [id])
+}
+
+model SupportTicket {
+  id           String   @id @default(uuid())
+  name         String
+  email        String
+  phone        String?
+  subject      String
+  message      String
+  status       String   @default("pending") // pending, resolved
+  replyMessage String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AgencyDiscount {
+  id              String   @id @default(uuid())
+  agencyLevel     Int // 1 to 10
+  itemType        String // 'SERVICE', 'RESOURCE', 'COURSE', 'ALL'
+  itemId          String // Specific ID or '*' for all in that type
+  discountPercent Float    @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([agencyLevel, itemType, itemId])
+}
+
+model AgencyUpgradeConfig {
+  level     Int      @id
+  price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AgencyInviteLink {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  level     Int
+  usageLeft Int      @default(-1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ReferralReward {
+  id             String   @id @default(uuid())
+  referrerId     String
+  referredUserId String?
+  amount         Float    @default(50000)
+  status         String   @default("PENDING") // PENDING, COMPLETED, REJECTED
+  ipAddress      String
+  reason         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  referrer     User @relation("RewardReferrer", fields: [referrerId], references: [id], onDelete: Cascade)
+  referredUser User? @relation("RewardReferred", fields: [referredUserId], references: [id], onDelete: Cascade)
+}
+
+model ChatSession {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  technicianId String?
+  technician   User?    @relation("TechnicianChats", fields: [technicianId], references: [id])
+  status       String   @default("AI_MODE") // AI_MODE, LIVE_CHAT, ENDED
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  messages     ChatMessage[]
+}
+
+model ChatMessage {
+  id           String   @id @default(uuid())
+  sessionId    String
+  session      ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  senderRole   String   // USER, AI, TECHNICIAN
+  content      String
+  createdAt    DateTime @default(now())
+}
+

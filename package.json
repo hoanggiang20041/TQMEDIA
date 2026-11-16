@@ -1,0 +1,20 @@
+{
+  "name": "tqmedia",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "dev:be": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm run start",
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "clean": "cd frontend && rmdir /s /q .next node_modules && cd ../backend && rmdir /s /q node_modules"
+  },
+  "dependencies": {
+    "axios": "^1.18.0",
+    "cheerio": "^1.2.0",
+    "node-ssh": "^13.2.1",
+    "puppeteer": "^25.1.0",
+    "socket.io-client": "^4.8.1"
+  }
+}

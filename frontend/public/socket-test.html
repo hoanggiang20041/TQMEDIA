@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket Test</title>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Socket.IO Test</h1>
+  <div id="status">Connecting...</div>
+  <script>
+    const socket = io('', { path: '/socket.io', transports: ['websocket', 'polling'] });
+    socket.on('connect', () => {
+      document.getElementById('status').innerText = 'Connected! ' + socket.id;
+      console.log('Connected', socket.id);
+    });
+    socket.on('connect_error', (err) => {
+      document.getElementById('status').innerText = 'Error: ' + err.message;
+      console.error('Error', err);
+    });
+  </script>
+</body>
+</html>

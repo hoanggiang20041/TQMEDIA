@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production / Build
+.next/
+out/
+build/
+dist/
+
+# Environment Variables & Secrets
+.env*
+temp_*.txt
+*.env
+*.env.local
+*.env.development
+*.env.production
+*.env.test
+
+# SQLite & Databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Large Archives, Backups & Temp
+*.tar
+*.tar.gz
+*.zip
+*.rar
+*.7z
+*.bak
+*.backup
+temp.txt
+temp_*.txt
+temp_local.txt
+temp_vps.txt
+temp_vps_new.txt
+
+# Media Files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
