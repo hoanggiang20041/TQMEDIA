@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TQMEDIA - Modern Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container": "#221e28",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-container": "#ede0ff",
+                        "surface-dim": "#15121b",
+                        "on-tertiary-container": "#ffe0cd",
+                        "surface-variant": "#37333e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#7c3aed",
+                        "outline": "#958da1",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#00424e",
+                        "surface-container-high": "#2c2833",
+                        "surface": "#15121b",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#ccc3d8",
+                        "primary-fixed": "#eaddff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-container": "#a15100",
+                        "outline-variant": "#4a4455",
+                        "inverse-primary": "#732ee4",
+                        "background": "#15121b",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "primary": "#d2bbff",
+                        "tertiary": "#ffb784",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#100d16",
+                        "error-container": "#93000a",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#d2bbff",
+                        "secondary-container": "#03b5d3",
+                        "on-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "inverse-surface": "#e8dfee",
+                        "surface-container-highest": "#37333e",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-low": "#1d1a24",
+                        "on-primary-fixed": "#25005a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#3f008e",
+                        "surface-bright": "#3c3742",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e8dfee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "code-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .neon-border-glow {
+            position: relative;
+        }
+        
+        .neon-border-glow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .active-glow {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen py-6 gap-2 bg-surface-container/90 backdrop-blur-xl fixed left-0 w-64 border-r border-white/10 shadow-lg z-40">
+<div class="px-6 mb-8 flex flex-col gap-2">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">TQMEDIA</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Marketing cao cấp</p>
+</div>
+<div class="flex-1 overflow-y-auto px-2 flex flex-col gap-1">
+<!-- Active Item -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary border-l-4 border-primary bg-primary/10 shadow-[0_0_15px_rgba(124,58,237,0.2)] rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                Bảng điều khiển
+            </a>
+<!-- Inactive Items -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">home</span>
+                Trang chủ
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">school</span>
+                Học viên
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+                Tài nguyên
+            </a>
+<div class="mt-4 mb-2 px-4 font-label-sm text-label-sm text-on-surface-variant/50 uppercase tracking-wider">Chiến dịch</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">video_library</span>
+                TikTok
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">thumb_up</span>
+                Facebook
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">search</span>
+                Google
+            </a>
+<div class="mt-4 mb-2 px-4 font-label-sm text-label-sm text-on-surface-variant/50 uppercase tracking-wider">Quản lý</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">article</span>
+                Blog
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+                Đơn hàng
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+                Thống kê
+            </a>
+</div>
+<div class="mt-auto px-2 pt-4 border-t border-white/5 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Cài đặt
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error/10 transition-all duration-200 cursor-pointer active:translate-x-1 rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Đăng xuất
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full border-b border-white/10 shadow-sm z-30 shrink-0">
+<div class="flex-1 flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant p-2 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/50">search</span>
+<input class="w-full bg-surface-container border border-outline-variant/50 rounded-lg py-2 pl-10 pr-4 text-on-surface placeholder:text-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-colors font-body-md text-body-md" placeholder="Tìm kiếm..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 p-2 rounded-full hover:bg-white/5 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 p-2 rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-gradient-to-tr from-primary to-secondary p-[1px] cursor-pointer ml-2">
+<img alt="Ảnh đại diện người dùng" class="h-full w-full rounded-full object-cover" data-alt="A close-up portrait of a professional individual serving as an avatar placeholder. The lighting is modern and flattering, with a sleek, tech-focused aesthetic that matches the premium dark mode UI. The background is softly blurred." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9VDA4XCRqFOQwb8JdSxIY4MfBgWd03gUJrwJkFA-BzAlq4ODAJPZTl-uUfHssfp8Oaa4ADRlcJ2MDCKp9l-qvc7DHdzkk7V3CbLH62YIA2DEF0uL1I90FmX_v80OzTFvXZV_BVonHRqmNfp84XoIHV6_vAeg1b-HqU1IgyQbzNZioiH5UlS1sXeQm2Q8XJVuQfH5CUk5nhVtsYap7AZWdkra4mwxZ4ZrRwT_tmRIzFpUqFIyv4WvHsmlWwm67sO1vMGoosEIzRClx"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-4 md:p-8 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-surface-container-high/40 via-background to-background">
+<div class="max-w-max-width mx-auto flex flex-col gap-8">
+<!-- Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Tổng quan hệ thống</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Xin chào, đây là hiệu suất của TQMEDIA hôm nay.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-sm text-label-sm px-6 py-3 rounded-lg flex items-center gap-2 hover:shadow-[0_0_15px_rgba(124,58,237,0.4)] transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined">add</span>
+                        Tạo chiến dịch mới
+                    </button>
+</div>
+<!-- Bento Grid: Stat Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-panel neon-border-glow rounded-xl p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200 group active-glow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tổng đơn hàng</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">1,284</h3>
+</div>
+<div class="bg-primary/20 p-2 rounded-lg text-primary group-hover:bg-primary group-hover:text-background transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-secondary flex items-center font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                                12.5%
+                            </span>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">so với tuần trước</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel neon-border-glow rounded-xl p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200 group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Doanh thu (vnđ)</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">45.2M</h3>
+</div>
+<div class="bg-secondary/20 p-2 rounded-lg text-secondary group-hover:bg-secondary group-hover:text-background transition-colors">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-secondary flex items-center font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                                8.2%
+                            </span>
+<span class="text-on-surface-variant/60 font-label-sm text-label-sm">so với tuần trước</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel neon-border-glow rounded-xl p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200 group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Người dùng trực tuyến</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 flex items-center gap-2">
+                                    342
+                                    <span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+</h3>
+</div>
+<div class="bg-tertiary/20 p-2 rounded-lg text-tertiary group-hover:bg-tertiary group-hover:text-background transition-colors">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<div class="w-full h-8 bg-surface-container/50 rounded overflow-hidden flex items-end gap-1 px-1 pt-1 mt-2">
+<!-- Fake mini bar chart -->
+<div class="w-full bg-tertiary/40 rounded-t-sm h-[30%]"></div>
+<div class="w-full bg-tertiary/40 rounded-t-sm h-[50%]"></div>
+<div class="w-full bg-tertiary/60 rounded-t-sm h-[40%]"></div>
+<div class="w-full bg-tertiary/80 rounded-t-sm h-[70%]"></div>
+<div class="w-full bg-tertiary rounded-t-sm h-[90%]"></div>
+<div class="w-full bg-tertiary rounded-t-sm h-[100%]"></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel neon-border-glow rounded-xl p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200 group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tỷ lệ tăng trưởng</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">24.8%</h3>
+</div>
+<div class="bg-error/20 p-2 rounded-lg text-error group-hover:bg-error group-hover:text-background transition-colors">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+</div>
+<div class="w-full h-8 mt-2 relative">
+<!-- Fake mini line chart -->
+<svg class="w-full h-full text-error" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 25 Q 20 20 40 28 T 80 15 T 100 5 L 100 30 L 0 30 Z" fill="currentColor" fill-opacity="0.1"></path>
+<path d="M0 25 Q 20 20 40 28 T 80 15 T 100 5" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Analytics Area Chart (Spans 2 columns on lg) -->
+<div class="lg:col-span-2 glass-panel neon-border-glow rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Doanh thu theo thời gian</h3>
+<select class="bg-surface-container border border-outline-variant/50 rounded-lg py-1 px-3 text-on-surface font-label-sm text-label-sm focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none">
+<option>Tuần này</option>
+<option>Tháng này</option>
+<option>Năm nay</option>
+</select>
+</div>
+<!-- Chart Area Placeholder -->
+<div class="w-full h-64 md:h-80 relative flex items-end justify-between px-4 pb-8 pt-4">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between pb-8 pointer-events-none">
+<div class="w-full border-t border-white/5"></div>
+<div class="w-full border-t border-white/5"></div>
+<div class="w-full border-t border-white/5"></div>
+<div class="w-full border-t border-white/5"></div>
+<div class="w-full border-t border-white/5"></div>
+</div>
+<!-- Fake Area Chart Graphic -->
+<div class="absolute inset-x-0 bottom-8 top-4">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="areaGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#7c3aed" stop-opacity="0.5"></stop>
+<stop offset="100%" stop-color="#7c3aed" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,250 C100,220 200,280 300,180 C400,80 500,200 600,150 C700,100 800,220 900,100 C950,40 1000,80 1000,80 L1000,300 L0,300 Z" fill="url(#areaGradient)"></path>
+<path d="M0,250 C100,220 200,280 300,180 C400,80 500,200 600,150 C700,100 800,220 900,100 C950,40 1000,80 1000,80" fill="none" stroke="#d2bbff" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</div>
+<!-- X Axis Labels -->
+<div class="absolute bottom-0 inset-x-0 flex justify-between px-4 text-on-surface-variant/60 font-label-sm text-label-sm">
+<span>T2</span>
+<span>T3</span>
+<span>T4</span>
+<span>T5</span>
+<span>T6</span>
+<span>T7</span>
+<span>CN</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Recent Activity or Promo -->
+<div class="glass-panel neon-border-glow rounded-xl p-6 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Trạng thái chiến dịch</h3>
+<div class="space-y-4 flex-1">
+<!-- Item -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary border border-secondary/30">
+<span class="material-symbols-outlined">video_library</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-medium">TikTok Tết 2024</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Đang chạy • Ngân sách 80%</p>
+</div>
+<div class="text-right">
+<span class="block w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#4cd7f6] ml-auto"></span>
+</div>
+</div>
+<!-- Item -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary border border-primary/30">
+<span class="material-symbols-outlined">thumb_up</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-medium">Facebook Retargeting</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Đã lên lịch • Bắt đầu ngày mai</p>
+</div>
+<div class="text-right">
+<span class="block w-2 h-2 rounded-full bg-primary/50 ml-auto"></span>
+</div>
+</div>
+<!-- Item -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-error border border-error/30">
+<span class="material-symbols-outlined">search</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface font-medium">Google Search Ads</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cần chú ý • Lỗi thanh toán</p>
+</div>
+<div class="text-right">
+<span class="block w-2 h-2 rounded-full bg-error shadow-[0_0_8px_#ffb4ab] ml-auto animate-pulse"></span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-2 border border-secondary/50 text-secondary rounded-lg font-label-sm text-label-sm hover:bg-secondary/10 transition-colors">
+                             Xem tất cả chiến dịch
+                         </button>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="glass-panel neon-border-glow rounded-xl overflow-hidden flex flex-col">
+<div class="p-6 border-b border-white/10 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Đơn hàng gần đây</h3>
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="px-6 py-4 font-medium">ID</th>
+<th class="px-6 py-4 font-medium">Khách hàng</th>
+<th class="px-6 py-4 font-medium">Dịch vụ</th>
+<th class="px-6 py-4 font-medium">Trạng thái</th>
+<th class="px-6 py-4 font-medium text-right">Tổng tiền</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-code-sm text-code-sm text-on-surface-variant group-hover:text-primary transition-colors">#ORD-0921</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">NM</div>
+<span class="font-body-md text-body-md text-on-surface">Nguyễn Văn Minh</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Gói Marketing Tổng Thể</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary border border-secondary/20 font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            Hoàn thành
+                                        </span>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface font-medium text-right">15,000,000 ₫</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-code-sm text-code-sm text-on-surface-variant group-hover:text-primary transition-colors">#ORD-0920</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-tertiary">TH</div>
+<span class="font-body-md text-body-md text-on-surface">Trần Thu Hà</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Tối ưu SEO Website</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary/10 text-tertiary border border-tertiary/20 font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                                            Đang xử lý
+                                        </span>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface font-medium text-right">8,500,000 ₫</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-code-sm text-code-sm text-on-surface-variant group-hover:text-primary transition-colors">#ORD-0919</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">LP</div>
+<span class="font-body-md text-body-md text-on-surface">Lê Hoàng Phong</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Quản trị Fanpage</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary border border-secondary/20 font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            Hoàn thành
+                                        </span>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface font-medium text-right">4,200,000 ₫</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group cursor-pointer">
+<td class="px-6 py-4 font-code-sm text-code-sm text-on-surface-variant group-hover:text-primary transition-colors">#ORD-0918</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-error">ĐK</div>
+<span class="font-body-md text-body-md text-on-surface">Phạm Đăng Khôi</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">Quảng cáo TikTok Ads</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error/10 text-error border border-error/20 font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                            Đã hủy
+                                        </span>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface font-medium text-right">20,000,000 ₫</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

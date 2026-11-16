@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TQMEDIA - Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container": "#221e28",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-container": "#ede0ff",
+                        "surface-dim": "#15121b",
+                        "on-tertiary-container": "#ffe0cd",
+                        "surface-variant": "#37333e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#7c3aed",
+                        "outline": "#958da1",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#00424e",
+                        "surface-container-high": "#2c2833",
+                        "surface": "#15121b",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#ccc3d8",
+                        "primary-fixed": "#eaddff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-container": "#a15100",
+                        "outline-variant": "#4a4455",
+                        "inverse-primary": "#732ee4",
+                        "background": "#15121b",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "primary": "#d2bbff",
+                        "tertiary": "#ffb784",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#100d16",
+                        "error-container": "#93000a",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#d2bbff",
+                        "secondary-container": "#03b5d3",
+                        "on-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "inverse-surface": "#e8dfee",
+                        "surface-container-highest": "#37333e",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-low": "#1d1a24",
+                        "on-primary-fixed": "#25005a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#3f008e",
+                        "surface-bright": "#3c3742",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e8dfee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+            border-color: rgba(76, 215, 246, 0.5);
+            transform: translateY(-2px);
+        }
+        .neon-underglow {
+            box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop h-16 w-full max-w-max-width mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">TQMEDIA</a>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-all duration-200" href="#">Trang chủ</a>
+<a class="text-primary font-bold border-b-2 border-primary font-body-md text-body-md" href="#">Blog</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-all duration-200" href="#">Khóa học</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform" data-icon="search">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform" data-icon="notifications">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="Ảnh đại diện người dùng" class="w-8 h-8 rounded-full border border-white/10 object-cover" data-alt="A close up portrait of a professional individual against a dark background, reflecting the modern, high-end SaaS style of the interface. The lighting is soft and focused, creating a sense of digital craftsmanship. The mood is confident and sophisticated, aligning with the dark, immersive aesthetic of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADKqpMYoVaJbDo1Arb_L7uXYl-gj7rp-OkF2MXVMOdYZx5sVCHV21eWsYWn-i0wl1SuyFQe0WU6Mem-VJU-5wB7xwJu2IYO5fna1HzwfZeZAsLJfIgOl-Czuwfiz7TJb_cKbAaOtFysw5l5lF8GgiLqYcNLPdVx5djTmepn4uy2NPL3tJy7PBUA0QIcFbyJCwBMHtHSo_aksrwjI_hJZTJatPqR4xDtpMG-vta5bd3EnNioLULDW_ZZPTLwRpFGw3poHCOEUDBbg7q"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-12 relative rounded-xl overflow-hidden glass-card neon-underglow h-[614px] md:h-[500px] flex items-end">
+<img alt="Hero Featured Post" class="absolute inset-0 w-full h-full object-cover" data-alt="A vibrant, abstract digital representation of social media marketing analytics. Glowing neon lines in purple and cyan crisscross against a deep, dark background, symbolizing data flow and connectivity. The scene is illuminated by striking, luminescent effects, perfectly matching the high-performance command center aesthetic of the platform. The overall mood is energetic, futuristic, and highly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMbhEXz7eHvQ4t09ozvrhZhsWkJjZKqYHgfqJvir7Q7c0dPYL9Q_6HQ2_KymGF9JLoM-gU5VVW0A_W5xsQM1ir6EuoxaRpV57qX3beiPXLVyNEt79iqQ8ZR3ZrrWAt50CS7HlMyHR2Druybj1Tq36q1myPwi9sI-bZztzNnrLHyDG0KCPNMAbWwLuvPLmPamS0Asg3bDoKYG4zyE_co0MFniwIgRJnHevoDQ_UsOlPbXEun0WjcIPpumkSgJKWnFI6pj0z2lFwz4TZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="relative z-10 p-6 md:p-12 max-w-3xl">
+<span class="inline-block px-3 py-1 bg-secondary-container/20 text-secondary border border-secondary/30 rounded-full font-label-sm text-label-sm mb-4 backdrop-blur-sm">NỔI BẬT</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Chiến Lược Tối Ưu Hóa TikTok Ads Cho Agency Năm 2024</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 line-clamp-2 md:line-clamp-none">Khám phá những chiến thuật nâng cao giúp tăng cường chuyển đổi và giảm chi phí quảng cáo trên nền tảng TikTok, được đúc kết từ các chiến dịch thành công nhất của TQMEDIA.</p>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-md text-body-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">calendar_today</span> 12 Tháng 10, 2024</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">schedule</span> 8 phút đọc</span>
+</div>
+</div>
+</section>
+<!-- Filters -->
+<section class="mb-8 flex flex-wrap gap-3">
+<button class="px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm hover:bg-primary-container/80 transition-colors">Tất cả</button>
+<button class="px-4 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:border-secondary/50 transition-colors">Cập nhật</button>
+<button class="px-4 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:border-secondary/50 transition-colors">TikTok Tips</button>
+<button class="px-4 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:border-secondary/50 transition-colors">FB Ads</button>
+<button class="px-4 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:border-secondary/50 transition-colors">SEO</button>
+</section>
+<!-- Grid Layout -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col glow-hover transition-all duration-200">
+<div class="h-48 relative overflow-hidden">
+<img alt="Data Analytics" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A sleek, modern dashboard interface displaying complex marketing data charts and graphs. The screen glows softly against a dark, minimalist desk setup, emphasizing a tech-savvy, developer-centric aesthetic. Hints of neon purple and cyan illuminate the data points, creating a sense of precision and high-performance analytics. The overall atmosphere is focused and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0nqv6e8Dx4myIWbjRGoskdS7plufUMkF6gKyz0Bqz0FySFgBCib7FB8I-bRy-83jY06R0Hn1m13KjlTKILveRZC5i9Pgm98IOuV6Z313F3nHe2I_f6QyUC5GdXv_BMXAL2SXnIY5DfdLdX_VCSU4hQutYD4oblH1w073z9Ivj2-mkuU9alPIgvjIMpzpho9uP1pr_UB8vTpuUMz_YFAV7y79Qc-KxZi7I2HlJAHz9b--c6THDuX9U-1G6LtnzXbpGPu7oFaOQH7Bq"/>
+<span class="absolute top-4 left-4 px-2 py-1 bg-surface-container/80 backdrop-blur-md text-primary rounded font-label-sm text-label-sm border border-white/10">FB Ads</span>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">Bí Quyết Vượt Qua Thuật Toán Facebook Mới Nhất</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow line-clamp-3">Phân tích chi tiết về bản cập nhật thuật toán gần đây và cách điều chỉnh chiến dịch của bạn để duy trì ROI cao.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+<div class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+<span>05/10/2024</span>
+<span>•</span>
+<span>5 min read</span>
+</div>
+<button class="text-secondary font-label-sm text-label-sm hover:text-secondary-fixed transition-colors flex items-center gap-1 group">
+                            Xem thêm <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col glow-hover transition-all duration-200">
+<div class="h-48 relative overflow-hidden">
+<img alt="SEO Workspace" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A high-end, uncluttered workspace featuring a laptop open to code and SEO tools. The environment is dark and moody, illuminated primarily by the glow of the screen and a subtle desk lamp. The aesthetic perfectly matches the digital craftsmanship vibe of a modern SaaS platform, focusing on deep work and strategic planning. The tones are cool and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxMee3zZm7vnoU4mC8VEEAbe8Yrc5Ng4FPHakK4NZrBhIi4etZnIYxEbqu4JjazBiJ1VR7q0mq0Ysa6srSQVdzsOyu-GcL_AmIWuUK0Ot3eacG9NhbcTXtP20UXiJFjHxEl_-fC7rWG70bA12M56W_LYFPrFFaEVz-eDJB73qeATQ8qSeTZOTLm-fxkzYUAfFtL43qblfKYCaa3pJCkJasku_nUCVlAHbV133a1h2Ur1e4iXw39X9FLr4Z6PLS4V3iD5O4QHeMhAGR"/>
+<span class="absolute top-4 left-4 px-2 py-1 bg-surface-container/80 backdrop-blur-md text-primary rounded font-label-sm text-label-sm border border-white/10">SEO</span>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">Xây Dựng Cấu Trúc Website Chuẩn SEO Cho E-commerce</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow line-clamp-3">Hướng dẫn từng bước để tối ưu hóa cấu trúc site, cải thiện trải nghiệm người dùng và tăng thứ hạng tìm kiếm tự nhiên.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+<div class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+<span>01/10/2024</span>
+<span>•</span>
+<span>10 min read</span>
+</div>
+<button class="text-secondary font-label-sm text-label-sm hover:text-secondary-fixed transition-colors flex items-center gap-1 group">
+                            Xem thêm <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="glass-card rounded-xl overflow-hidden flex flex-col glow-hover transition-all duration-200">
+<div class="h-48 relative overflow-hidden">
+<img alt="Team Collaboration" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A dynamic, blurred representation of a creative team meeting, heavily stylized with glassmorphism and modern SaaS aesthetics. The subjects are abstracted, focusing on the flow of ideas and collaboration in a high-tech environment. Deep shadows contrast with vibrant, luminescent neon highlights in purple and cyan, creating a sense of energy and fast-paced agency life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQKQAzEc5-G-rtRga6CTKsoaiGfNVYFkbX23Ha5oCmiDJM3a-NR5Z2jWYbTGEB7_fEE8sGBL-B_Tho09_KJLhrk7ufaBL4ZKJIYLzpU6pi2TrNQZY0f_uqEihfcdwuqOAeJrLdZaF8e8ICDIlkCGzBBgq_4R95KWfiKDOVYE6IZaqF-RgEKY9E3ylivISf_YVagWS_F-LrOlm70CEtCqd-48ekFZ2tuLI-_BuC3fDXtumaN6hwvcQ01zyN6ARxRzUDXbqk_4NTKufJ"/>
+<span class="absolute top-4 left-4 px-2 py-1 bg-surface-container/80 backdrop-blur-md text-primary rounded font-label-sm text-label-sm border border-white/10">Cập nhật</span>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 line-clamp-2">TQMEDIA Ra Mắt Công Cụ Quản Lý Chiến Dịch Mới</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow line-clamp-3">Khám phá các tính năng đột phá trong bản cập nhật hệ thống mới nhất của chúng tôi, giúp bạn quản lý đa kênh hiệu quả hơn.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+<div class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+<span>28/09/2024</span>
+<span>•</span>
+<span>3 min read</span>
+</div>
+<button class="text-secondary font-label-sm text-label-sm hover:text-secondary-fixed transition-colors flex items-center gap-1 group">
+                            Xem thêm <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-12 border-t border-white/5 mt-auto">
+<div class="max-w-max-width mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-headline-md text-headline-md text-primary font-bold">TQMEDIA</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Về chúng tôi</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Điều khoản</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Bảo mật</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Liên hệ</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-body-md">
+                © 2024 TQMEDIA. Tất cả quyền được bảo lưu.
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khóa học của tôi - TQMEDIA</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Custom Scrollbar for inner areas */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a4455; /* outline-variant */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #958da1; /* outline */
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container": "#221e28",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-container": "#ede0ff",
+                        "surface-dim": "#15121b",
+                        "on-tertiary-container": "#ffe0cd",
+                        "surface-variant": "#37333e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#7c3aed",
+                        "outline": "#958da1",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#00424e",
+                        "surface-container-high": "#2c2833",
+                        "surface": "#15121b",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#ccc3d8",
+                        "primary-fixed": "#eaddff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-container": "#a15100",
+                        "outline-variant": "#4a4455",
+                        "inverse-primary": "#732ee4",
+                        "background": "#15121b",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "primary": "#d2bbff",
+                        "tertiary": "#ffb784",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#100d16",
+                        "error-container": "#93000a",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#d2bbff",
+                        "secondary-container": "#03b5d3",
+                        "on-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "inverse-surface": "#e8dfee",
+                        "surface-container-highest": "#37333e",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-low": "#1d1a24",
+                        "on-primary-fixed": "#25005a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#3f008e",
+                        "surface-bright": "#3c3742",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e8dfee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen selection:bg-primary-container selection:text-on-primary-container flex flex-col md:flex-row">
+<!-- TopNavBar (Fixed Top, full width, high z-index) -->
+<nav class="bg-surface/80 backdrop-blur-xl text-primary fixed top-0 w-full z-50 border-b border-white/10 shadow-sm flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 max-w-max-width mx-auto">
+<div class="flex items-center gap-4">
+<!-- Search on Left -->
+<div class="relative hidden md:flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined absolute left-3 text-sm pointer-events-none">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-full pl-10 pr-4 py-1.5 focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-colors font-body-md text-body-md w-64 placeholder-on-surface-variant/50 text-on-surface" placeholder="Tìm kiếm khóa học..." type="text"/>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+            TQMEDIA
+        </div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform hidden md:block">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden cursor-pointer">
+<img alt="Ảnh đại diện người dùng" class="w-full h-full object-cover" data-alt="A close up, cinematic portrait of a young professional in a dark studio setting. The lighting features subtle cyan and purple rim lights, casting deep shadows that align with a premium, tech-focused dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw9nhZgwgBnp0mZE0KgS6DglUw6si7lzOtr84Mn2vSoshmeYrBagMsKiNCeZhLmaXY4b1ofJXsn3_rjKF0OjC3wtIDAfVWVmxpGeUwJi3fz-wDDNPVIVltuOYcWpHEKjMvvEI72V9tLnAqPJr5MKvgNQ42OzFFw32hyN6asfthxmIkg4t7uuLUqvke1hQGqDREK73uQu9wW4_ITuhOO2yT_p04pofEOYm0R9EL_vbKmmNd-xzaBebY678fT6froBRiKLvgkPNYOXxO"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Fixed Left) -->
+<aside class="bg-surface-container/90 backdrop-blur-xl text-primary font-label-sm text-label-sm fixed left-0 h-full w-64 border-r border-white/10 shadow-lg flex-col h-screen py-6 gap-2 z-40 hidden md:flex pt-20">
+<!-- User/Brand Info Area -->
+<div class="px-6 mb-8 mt-2 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-container to-surface-container-high border border-white/10 flex items-center justify-center shadow-lg mb-3">
+<span class="font-headline-md text-headline-md text-primary font-bold">TQ</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">TQMEDIA</h2>
+<p class="text-on-surface-variant mt-1">Marketing cao cấp</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Bảng điều khiển
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">apps</span>
+                Dịch vụ
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+                Thống kê
+            </a>
+<!-- ACTIVE TAB: Khóa học -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary border-l-4 border-primary bg-primary/10 shadow-[0_0_15px_rgba(124,58,237,0.2)] cursor-pointer active:translate-x-1 rounded-r-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+                Khóa học
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+                Tài nguyên
+            </a>
+</nav>
+<!-- CTA & Footer Tabs -->
+<div class="px-4 mt-auto mb-4">
+<button class="w-full bg-primary-container text-on-primary-container font-label-sm text-label-sm py-3 rounded-lg shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-300 border border-primary-container/50">
+                Nâng cấp ngay
+            </button>
+</div>
+<div class="flex flex-col gap-1 px-2 border-t border-white/5 pt-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Hỗ trợ
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Cài đặt
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 pt-20 px-margin-mobile md:px-margin-desktop pb-12 flex flex-col gap-8 max-w-max-width mx-auto w-full relative z-10">
+<!-- Header & Progress -->
+<header class="flex flex-col gap-4">
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-surface">Khóa học của tôi</h1>
+<div class="bg-surface-container-high/50 border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm relative overflow-hidden">
+<!-- Subtle background glow -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-end mb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Tiến độ tổng quan</span>
+<span class="font-headline-md text-headline-md text-primary">68%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2.5 overflow-hidden border border-black/20">
+<div class="bg-primary h-2.5 rounded-full shadow-[0_0_10px_rgba(210,187,255,0.8)] transition-all duration-1000 ease-out" style="width: 68%"></div>
+</div>
+</div>
+<div class="flex gap-4 min-w-[200px]">
+<div class="text-center">
+<div class="font-headline-md text-headline-md text-on-surface">12</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Đã hoàn thành</div>
+</div>
+<div class="w-px bg-outline-variant"></div>
+<div class="text-center">
+<div class="font-headline-md text-headline-md text-on-surface">3</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Đang học</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Active Video Lesson (Bento Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Video Player -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<div class="bg-surface-dim border border-white/10 rounded-2xl overflow-hidden shadow-lg relative group aspect-video">
+<img alt="Video thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-50 transition-opacity duration-300" data-alt="A highly cinematic, ultra-widescreen shot of a sleek, dark-mode software interface focusing on data analytics and marketing dashboards. Deep blacks and grays form the background, illuminated by sharp, neon cyan and purple data lines. The lighting is moody and focused, typical of a high-end, premium SaaS promotional video." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVn54NnA7QE-ctkoWIDiGqpnam-EKZ5Hw_eocPl2bPd0lSLD80LKfPPIyklLfwIFM9CB0MhWhSyTMb3MetrRJ39_t6Wx-QbHmT8jrudFsENdVpGSQeoixCWaIPU7uwVChHtJqw6O5wq2HeVE6oAv0eTg8POEQjX8gLOwVk_x9N6jdOJ_261vpSkUXmXsRGVT9M7aa6VhXPjzjDwmoI_oorHusMTdXR-j36VxHoI64PCjLWl8gML5i8YsgoqezUqjQnnsrCI9s6t8dD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<!-- Play Button Overlay -->
+<button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-surface-container/50 backdrop-blur-md rounded-full border border-primary flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-surface shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Video Progress Overlay -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-surface-variant">
+<div class="bg-secondary h-full w-1/3 shadow-[0_0_10px_rgba(76,215,246,0.8)]"></div>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Chương 3: Tối ưu hóa chuyển đổi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Khóa học: Master Performance Marketing</p>
+</div>
+</div>
+<!-- Lesson List -->
+<div class="bg-surface-container/50 backdrop-blur-xl border border-outline-variant rounded-2xl p-5 flex flex-col gap-4 h-[400px] lg:h-auto overflow-hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface border-b border-outline-variant pb-3">Danh sách bài học</h3>
+<div class="flex-1 overflow-y-auto pr-2 flex flex-col gap-2">
+<!-- Completed Item -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">1. Giới thiệu phễu bán hàng</p>
+<p class="font-label-sm text-label-sm text-outline">12:45</p>
+</div>
+</div>
+<!-- Completed Item -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">2. Thiết lập tracking cơ bản</p>
+<p class="font-label-sm text-label-sm text-outline">18:20</p>
+</div>
+</div>
+<!-- Active Item -->
+<div class="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/20 cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary shadow-[0_0_10px_rgba(210,187,255,1)]"></div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-primary font-medium">3. Tối ưu hóa chuyển đổi (Đang học)</p>
+<p class="font-label-sm text-label-sm text-primary/70">24:10</p>
+</div>
+</div>
+<!-- Locked Item -->
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-highest transition-colors cursor-pointer opacity-60">
+<span class="material-symbols-outlined text-outline">lock</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant">4. Phân tích dữ liệu nâng cao</p>
+<p class="font-label-sm text-label-sm text-outline">35:00</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Course List Grid -->
+<section class="mt-4">
+<div class="flex justify-between items-end mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Đang theo học</h2>
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-fixed-dim transition-colors flex items-center gap-1">
+                    Xem tất cả <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Course Card 1 -->
+<div class="bg-surface-container/60 backdrop-blur-md border border-white/5 hover:border-white/20 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col group">
+<div class="h-40 relative overflow-hidden">
+<img alt="Course image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" data-alt="A minimalist overhead view of a modern desk setup in a dark environment. A glowing laptop screen displays complex digital marketing charts with neon cyan and purple data points. The aesthetic is extremely clean, moody, and tailored for a high-end tech professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQrlzUT9CW8MhNl5oMGz-JuQJTqtGVKU71n5EOCZZa1YS9hafTB0cYhiMRxVPTcDwvll1zy2K8txkiuBRy1IRNz33fKHzNJOc-7p_MVNJ1aN8rpivvdJQ3Q10fczE3W14CmpfvRnN_IViDf5kiaIE1OK3Sb3II9BmN-MDUv-rK-d2nyaEkIukUlCwaq95uhBHGw5k1sxE3yrkVF2288cXre2Fa0BNyhLqaT2zt35pvNTPt9k_2y0cs6d2EZdM3LhwC_-uv9W_3DViy"/>
+<div class="absolute top-3 left-3 bg-background/80 backdrop-blur-sm border border-white/10 px-2 py-1 rounded text-xs font-label-sm text-secondary">
+                            Marketing
+                        </div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<h3 class="font-body-lg text-body-lg text-on-surface mb-2 line-clamp-2">Master Performance Marketing 2024</h3>
+<div class="mt-auto pt-4">
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface-variant">Tiến độ</span>
+<span class="text-primary font-medium">45%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 mb-4">
+<div class="bg-primary h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+<button class="w-full bg-surface-bright hover:bg-primary border border-white/10 hover:border-primary text-on-surface hover:text-surface font-label-sm text-label-sm py-2.5 rounded-lg transition-all duration-200">
+                                Tiếp tục học
+                            </button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container/60 backdrop-blur-md border border-white/5 hover:border-white/20 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col group">
+<div class="h-40 relative overflow-hidden">
+<img alt="Course image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" data-alt="Abstract visualization of branding and typography design. Floating 3D text elements and wireframes in a dark void, illuminated by soft rim lighting in magenta and deep blue. The scene conveys creativity mixed with precise digital execution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_U0agll--HQErIiAY8eg_y7HNx2qTZ7tJ-m3QCnBj31hH29a8NjKaZ7lsRwUzR7Z4CP3Mm7MJpBnfxFmq4Zf2pAPWKh82YAI8DKORzE9x9GqV0MAHf_fGuF5bjgQemyJU-jARfr3qqgSI-wnwxBQE-uXGNNbeFmHbPhJ7uGQ21UV2jHSeUdzGcsOOvxyImIWuyltCgQSVfyYxhog4GpTAFjNJft7_f0GuhHyaswxIokdmFGuoHyy9GWy7p9Xfy-BgWZF2F3nTm-Yp"/>
+<div class="absolute top-3 left-3 bg-background/80 backdrop-blur-sm border border-white/10 px-2 py-1 rounded text-xs font-label-sm text-tertiary">
+                            Design
+                        </div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<h3 class="font-body-lg text-body-lg text-on-surface mb-2 line-clamp-2">Tư duy hình ảnh cho Social Media</h3>
+<div class="mt-auto pt-4">
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface-variant">Tiến độ</span>
+<span class="text-primary font-medium">82%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 mb-4">
+<div class="bg-primary h-1.5 rounded-full shadow-[0_0_8px_rgba(210,187,255,0.6)]" style="width: 82%"></div>
+</div>
+<button class="w-full bg-surface-bright hover:bg-primary border border-white/10 hover:border-primary text-on-surface hover:text-surface font-label-sm text-label-sm py-2.5 rounded-lg transition-all duration-200">
+                                Tiếp tục học
+                            </button>
+</div>
+</div>
+</div>
+<!-- Empty State / Suggestion Card -->
+<div class="bg-surface-container-lowest border border-dashed border-outline-variant rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-3 transition-colors hover:border-outline hover:bg-surface-container-low">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant mb-2">
+<span class="material-symbols-outlined">add</span>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface">Khám phá khóa học mới</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Nâng cao kỹ năng với thư viện khóa học cao cấp từ TQMEDIA.</p>
+<button class="mt-2 text-secondary hover:text-secondary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+                        Xem danh mục
+                    </button>
+</div>
+</div>
+</section>
+<!-- Resources & Certificates -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+<!-- Materials Tab -->
+<div class="bg-surface-container border border-white/5 rounded-2xl p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary text-[28px]">folder_special</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Tài liệu tham khảo</h2>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-background border border-outline-variant hover:border-outline transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">picture_as_pdf</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Template Plan Marketing 2024</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">PDF • 2.4 MB</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-background border border-outline-variant hover:border-outline transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline">description</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Bộ KPI Mẫu cho Agency</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Excel • 1.1 MB</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<!-- Certificates Tab -->
+<div class="bg-surface-container border border-white/5 rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden">
+<!-- Glowing accent -->
+<div class="absolute right-0 top-0 w-32 h-32 bg-secondary/10 rounded-full blur-[50px] pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-2 relative z-10">
+<span class="material-symbols-outlined text-secondary text-[28px]">workspace_premium</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Chứng chỉ của bạn</h2>
+</div>
+<div class="relative rounded-xl border border-outline-variant overflow-hidden bg-background aspect-[2/1] flex items-center justify-center group cursor-pointer z-10">
+<img alt="Certificate placeholder" class="w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-300 blur-[2px]" data-alt="A blurred, low-opacity image of an elegant, modern printed certificate resting on a dark slate surface. Soft, highly directed light highlights metallic foil stamping elements on the paper, fitting the dark SaaS UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB324WhbN5_m1J1jBQHagZ4MMO47nWuIL2xZdHUSYxbjFr2pedvelFwFafbD3-u8-kFPL40PJg12FYGMN9P_Shfw1PSNarhDu4LaGnQXG45-peCRia2Ex1EPi_8VQp2gDPlGFeFY72-YpcSJTKwdq8ubdXTiM14O_sAXAZyzO3wUXBJTwWHS1Ut4SeMN04LyqhzCV8eUWwbYnCsoN4ajyQB0BcfbCGh5yRdS8mGWXLygjt1g259LXhbza7Yiv2SkymaryyeO5600AaN"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-surface/50 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[40px] text-on-surface-variant">lock</span>
+<p class="font-body-md text-body-md text-on-surface text-center px-4">Hoàn thành 100% khóa học <br/>để mở khóa chứng chỉ</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (from JSON) -->
+<footer class="w-full py-12 border-t border-white/5 max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-8 bg-surface-container-lowest mt-8 rounded-2xl px-8">
+<div class="font-headline-md text-headline-md text-primary">TQMEDIA</div>
+<div class="flex gap-6 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Về chúng tôi</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Điều khoản</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Bảo mật</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Liên hệ</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant">© 2024 TQMEDIA. Tất cả quyền được bảo lưu.</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TQMEDIA - Đăng nhập / Đăng ký</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#713700",
+                    "on-primary-fixed-variant": "#5a00c6",
+                    "surface-container": "#221e28",
+                    "on-tertiary": "#4f2500",
+                    "on-primary-container": "#ede0ff",
+                    "surface-dim": "#15121b",
+                    "on-tertiary-container": "#ffe0cd",
+                    "surface-variant": "#37333e",
+                    "error": "#ffb4ab",
+                    "primary-container": "#7c3aed",
+                    "outline": "#958da1",
+                    "on-error": "#690005",
+                    "on-secondary-container": "#00424e",
+                    "surface-container-high": "#2c2833",
+                    "surface": "#15121b",
+                    "primary-fixed-dim": "#d2bbff",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "secondary": "#4cd7f6",
+                    "on-surface-variant": "#ccc3d8",
+                    "primary-fixed": "#eaddff",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary-container": "#a15100",
+                    "outline-variant": "#4a4455",
+                    "inverse-primary": "#732ee4",
+                    "background": "#15121b",
+                    "secondary-fixed": "#acedff",
+                    "tertiary-fixed-dim": "#ffb784",
+                    "primary": "#d2bbff",
+                    "tertiary": "#ffb784",
+                    "tertiary-fixed": "#ffdcc6",
+                    "surface-container-lowest": "#100d16",
+                    "error-container": "#93000a",
+                    "on-secondary": "#003640",
+                    "surface-tint": "#d2bbff",
+                    "secondary-container": "#03b5d3",
+                    "on-surface": "#e8dfee",
+                    "inverse-on-surface": "#332f39",
+                    "inverse-surface": "#e8dfee",
+                    "surface-container-highest": "#37333e",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "surface-container-low": "#1d1a24",
+                    "on-primary-fixed": "#25005a",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary": "#3f008e",
+                    "surface-bright": "#3c3742",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e8dfee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "code-sm": [
+                            "Geist"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ],
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "display-lg-mobile": [
+                            "Geist"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "code-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-clip: padding-box;
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        .neon-underglow {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+        }
+        .input-glass {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease-out;
+        }
+        .input-glass:focus {
+            border-color: #4cd7f6;
+            outline: none;
+            box-shadow: 0 0 10px rgba(76, 215, 246, 0.1);
+        }
+        .btn-primary {
+            background-color: #7c3aed;
+            transition: all 0.2s ease-out;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+            transform: translateY(-1px);
+        }
+        .btn-social {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease-out;
+        }
+        .btn-social:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+        .mesh-bg {
+            background-image: 
+                radial-gradient(at 40% 20%, hsla(263,91%,60%,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(263,91%,60%,0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(263,91%,60%,0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(263,91%,60%,0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex items-center justify-center font-body-md mesh-bg overflow-hidden relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Decorative Elements -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-primary-container/20 rounded-full blur-[120px] mix-blend-screen"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-1/2 h-1/2 bg-secondary/20 rounded-full blur-[120px] mix-blend-screen"></div>
+</div>
+<!-- Main Container -->
+<main class="relative z-10 w-full max-w-6xl mx-auto px-margin-mobile md:px-margin-desktop flex min-h-[600px] items-stretch gap-8 md:gap-gutter">
+<!-- Left Side: Visual/Branding (Hidden on mobile) -->
+<div class="hidden md:flex flex-1 flex-col justify-center items-start pr-12 relative">
+<div class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary mb-4 tracking-tight drop-shadow-sm">TQMEDIA</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md leading-relaxed">
+                    Nền tảng tự động hóa marketing mạng xã hội cao cấp. Tối ưu hóa chiến dịch, nâng tầm thương hiệu với độ chính xác và tốc độ vượt trội.
+                </p>
+</div>
+<!-- Abstract 3D Element Placeholder / Image -->
+<div class="relative w-full aspect-square max-w-md rounded-xl overflow-hidden glass-card glow-border flex items-center justify-center p-8 group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-secondary/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+<img alt="Abstract 3D marketing visualization" class="object-cover w-full h-full rounded-lg mix-blend-screen opacity-80 filter contrast-125 hover:scale-105 transition-transform duration-700 ease-out" data-alt="A highly sophisticated 3D abstract digital rendering representing automated marketing data flow. The scene features translucent, glowing geometric shapes and interconnected data lines floating in a deep, dark void. The lighting is dramatic, with vibrant neon purple and cyan accents illuminating the glass-like surfaces, reflecting a high-end, futuristic SaaS aesthetic typical of modern tech platforms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQaBF8vsm5wDRt7EDc_vPi-SQie95DTgf_3GV2-ollpBPMMZVOjrSfS_k1k6MrHtC5vJtyiCqxP5xtR_d8kNL7xUMwwyMpf40ran1KVx-ImWQryd_MSsUT3VRtoSFMeIeqcFrCLLPDl9bVn9fN8jev2bBOY-YKQ6_Q7m2tl432HUrDmXH0FXfrqa4QrFe2BIGXqGixGzGHqjl9uXbv3SjHZZ0U-PdeHw0CbIb79T6PscjLUksQJlndxLtOwBBf14St9Sfrog_vPs_b"/>
+</div>
+</div>
+<!-- Right Side: Auth Card -->
+<div class="flex-1 flex justify-center items-center w-full">
+<div class="glass-card glow-border rounded-xl w-full max-w-md p-8 shadow-2xl relative overflow-hidden">
+<!-- Inner ambient glow -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary-container/30 rounded-full blur-[60px] pointer-events-none"></div>
+<!-- Mobile Logo (visible only on mobile) -->
+<div class="md:hidden flex justify-center mb-8">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">TQMEDIA</h1>
+</div>
+<!-- Tabs -->
+<div class="flex mb-8 border-b border-white/10">
+<button class="flex-1 pb-4 font-label-sm text-label-sm text-primary border-b-2 border-primary transition-colors text-center">Đăng nhập</button>
+<button class="flex-1 pb-4 font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors text-center">Đăng ký</button>
+</div>
+<!-- Form -->
+<form action="#" class="space-y-5" method="POST">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2" for="email">Email / Username</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-opacity-50 text-[20px]" data-icon="person">person</span>
+<input class="w-full input-glass rounded-lg py-3 pl-10 pr-4 text-on-surface font-body-md placeholder-on-surface-variant/50 focus:ring-0" id="email" name="email" placeholder="admin@tqmedia.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2" for="password">Mật khẩu</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-opacity-50 text-[20px]" data-icon="lock">lock</span>
+<input class="w-full input-glass rounded-lg py-3 pl-10 pr-10 text-on-surface font-body-md placeholder-on-surface-variant/50 focus:ring-0" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility" id="visibility-icon">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="form-checkbox rounded bg-black/20 border-white/10 text-primary-container focus:ring-primary-container focus:ring-offset-background w-4 h-4 transition-all" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm group-hover:text-on-surface transition-colors">Ghi nhớ tôi</span>
+</label>
+<a class="font-label-sm text-label-sm text-secondary hover:text-secondary-fixed transition-colors" href="#">Quên mật khẩu?</a>
+</div>
+<button class="w-full btn-primary text-white font-label-sm text-label-sm py-3.5 rounded-lg mt-6 neon-underglow tracking-wide" type="submit">
+                        Đăng nhập ngay
+                    </button>
+</form>
+<div class="mt-8">
+<div class="relative flex py-5 items-center">
+<div class="flex-grow border-t border-white/10"></div>
+<span class="flex-shrink-0 mx-4 font-label-sm text-label-sm text-on-surface-variant/50">Hoặc tiếp tục với</span>
+<div class="flex-grow border-t border-white/10"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="btn-social flex items-center justify-center gap-2 py-2.5 rounded-lg font-label-sm text-label-sm text-on-surface">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                            Google
+                        </button>
+<button class="btn-social flex items-center justify-center gap-2 py-2.5 rounded-lg font-label-sm text-label-sm text-on-surface">
+<svg class="w-5 h-5 text-[#1877F2]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+                            Facebook
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const visibilityIcon = document.getElementById('visibility-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                visibilityIcon.textContent = 'visibility_off';
+                visibilityIcon.setAttribute('data-icon', 'visibility_off');
+            } else {
+                passwordInput.type = 'password';
+                visibilityIcon.textContent = 'visibility';
+                visibilityIcon.setAttribute('data-icon', 'visibility');
+            }
+        }
+    </script>
+</body></html>

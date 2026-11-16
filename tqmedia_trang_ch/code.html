@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TQMEDIA - Nền tảng Marketing Mạng Xã Hội</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container": "#221e28",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-container": "#ede0ff",
+                        "surface-dim": "#15121b",
+                        "on-tertiary-container": "#ffe0cd",
+                        "surface-variant": "#37333e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#7c3aed",
+                        "outline": "#958da1",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#00424e",
+                        "surface-container-high": "#2c2833",
+                        "surface": "#15121b",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#ccc3d8",
+                        "primary-fixed": "#eaddff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-container": "#a15100",
+                        "outline-variant": "#4a4455",
+                        "inverse-primary": "#732ee4",
+                        "background": "#15121b",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "primary": "#d2bbff",
+                        "tertiary": "#ffb784",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#100d16",
+                        "error-container": "#93000a",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#d2bbff",
+                        "secondary-container": "#03b5d3",
+                        "on-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "inverse-surface": "#e8dfee",
+                        "surface-container-highest": "#37333e",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-low": "#1d1a24",
+                        "on-primary-fixed": "#25005a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#3f008e",
+                        "surface-bright": "#3c3742",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e8dfee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "code-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["13px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop h-16 w-full max-w-max-width mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">TQMEDIA</div>
+<div class="hidden md:flex gap-8">
+<!-- Assume Home is active for landing page -->
+<a class="text-primary font-bold border-b-2 border-primary hover:text-primary transition-all duration-200 active:scale-95 transition-transform font-body-md text-body-md" href="#">Trang chủ</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform font-body-md text-body-md" href="#">Dịch vụ</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform font-body-md text-body-md" href="#">Bảng giá</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform font-body-md text-body-md" href="#">Liên hệ</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:text-primary transition-all duration-200 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-primary transition-all duration-200 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Ảnh đại diện người dùng" class="w-8 h-8 rounded-full border border-white/20" data-alt="A small circular avatar placeholder image showing a generic user profile silhouette. The image is set against a dark modern UI background, blending seamlessly with a high-tech glassmorphism aesthetic. The lighting is subtle and soft, emphasizing the user interface context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXFvha6gwh8nzQ-Niv5d1pg-RartvAqoI4TiJEYOBD9ZXfcbjktavQy2NlOfgp-bewFjPd755yLyVJD_Q858QiR6FAHeoEekzRpuN1gMW9CCXk2qf90a-IU1NjQz2YABxlM75cc27EV6r4F1l8r_NVUd0w3khHVQeetbdz8bVFiNxrL_trMhrx-HUgw1Rp-EC34o7-vILCgNC0HkhR3wZ4S6IqKbk2xDORoeGZ9xwTuy2hkhCZjES5jtv_8_iOK_WEpYKMr5X_RQOu"/>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col items-center text-center relative overflow-hidden">
+<!-- Background gradients -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 max-w-4xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            TQMEDIA - Nền tảng Marketing Mạng Xã Hội
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+            Giải pháp tăng trưởng toàn diện cho TikTok, Facebook và Google. Tối ưu hóa chiến dịch của bạn với sức mạnh của công nghệ AI và tự động hóa.
+        </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-16 z-10">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-opacity neon-glow">
+                Bắt đầu ngay
+            </button>
+<button class="glass-card text-on-surface px-8 py-3 rounded-lg font-label-sm text-label-sm hover:border-secondary transition-colors">
+                Khám phá dịch vụ
+            </button>
+</div>
+<div class="w-full max-w-5xl rounded-xl overflow-hidden glass-card p-2 relative z-10">
+<img alt="Dashboard Mockup" class="w-full h-auto rounded-lg" data-alt="A highly detailed and sleek dashboard interface displayed on a monitor, showcasing various data analytics charts, graphs, and metrics. The visual style is dark mode with glowing cyan and purple accents, characteristic of modern SaaS applications. The layout is clean and professional, emphasizing data visualization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8PP4X4VW5D3-KE-JrmJAImelhTJABtUXZLdaPm-gmj_yVA5osB78JBItgwg3oURSgnHQgJGkebP2rOwSrH7T2c9k6oCAWGph2kav8xiOCk_iYKXG_5bMOIySL2OwxNrgGl4n1LrfOTM_dFpcTxYg8fEN4t-EaVTo9JWuvVee-gWxCTHxKyMLMSXDTM9DWwCyvbnENSRCMUAiH4yVvcB6Bs346-ONdGwHVEhA6-8AGZ_re_3bZ4YRoUHXOmMf9cPbQtOjkJ32h35iP"/>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h2 class="font-headline-md text-headline-md text-center mb-12">Tính năng nổi bật</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-card p-8 rounded-xl hover:-translate-y-1 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">bolt</span>
+<h3 class="font-body-lg text-body-lg font-semibold mb-2">Tự động hóa</h3>
+<p class="text-on-surface-variant text-body-md font-body-md">Tiết kiệm thời gian với quy trình làm việc tự động thông minh.</p>
+</div>
+<div class="glass-card p-8 rounded-xl hover:-translate-y-1 transition-transform duration-200">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">analytics</span>
+<h3 class="font-body-lg text-body-lg font-semibold mb-2">Phân tích AI</h3>
+<p class="text-on-surface-variant text-body-md font-body-md">Dữ liệu được xử lý bởi AI giúp đưa ra quyết định chính xác.</p>
+</div>
+<div class="glass-card p-8 rounded-xl hover:-translate-y-1 transition-transform duration-200">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">shield_lock</span>
+<h3 class="font-body-lg text-body-lg font-semibold mb-2">Bảo mật tuyệt đối</h3>
+<p class="text-on-surface-variant text-body-md font-body-md">Dữ liệu của bạn được mã hóa và bảo vệ an toàn tối đa.</p>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto bg-surface-container-low rounded-3xl my-10">
+<h2 class="font-headline-md text-headline-md text-center mb-12">Dịch vụ cung cấp</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-card p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-4">video_library</span>
+<h3 class="font-body-lg text-body-lg font-semibold mb-2">TikTok Marketing</h3>
+<p class="text-on-surface-variant text-body-md font-body-md mb-4">Tăng tương tác và viral video nhanh chóng.</p>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Tìm hiểu thêm</button>
+</div>
+<div class="glass-card p-6 rounded-xl text-center border-t border-secondary/50 neon-glow">
+<span class="material-symbols-outlined text-5xl text-secondary mb-4">thumb_up</span>
+<h3 class="font-body-lg text-body-lg font-semibold mb-2">Facebook Ads</h3>
+<p class="text-on-surface-variant text-body-md font-body-md mb-4">Tối ưu chi phí quảng cáo, tiếp cận đúng khách hàng.</p>
+<button class="text-secondary font-label-sm text-label-sm hover:underline">Tìm hiểu thêm</button>
+</div>
+<div class="glass-card p-6 rounded-xl text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-4">search</span>
+<h3 class="font-body-lg text-body-lg font-semibold mb-2">Google SEO &amp; Ads</h3>
+<p class="text-on-surface-variant text-body-md font-body-md mb-4">Nâng cao thứ hạng tìm kiếm và doanh thu.</p>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Tìm hiểu thêm</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-12 border-t border-white/5 mt-20">
+<div class="max-w-max-width mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-headline-md text-headline-md text-primary">TQMEDIA</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Về chúng tôi</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Điều khoản</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Bảo mật</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Liên hệ</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-body-md">
+                © 2024 TQMEDIA. Tất cả quyền được bảo lưu.
+            </div>
+</div>
+</footer>
+</body></html>

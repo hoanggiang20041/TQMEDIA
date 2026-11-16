@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TQMEDIA - Dịch vụ TikTok</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container": "#221e28",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-container": "#ede0ff",
+                        "surface-dim": "#15121b",
+                        "on-tertiary-container": "#ffe0cd",
+                        "surface-variant": "#37333e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#7c3aed",
+                        "outline": "#958da1",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#00424e",
+                        "surface-container-high": "#2c2833",
+                        "surface": "#15121b",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#ccc3d8",
+                        "primary-fixed": "#eaddff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-container": "#a15100",
+                        "outline-variant": "#4a4455",
+                        "inverse-primary": "#732ee4",
+                        "background": "#15121b",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "primary": "#d2bbff",
+                        "tertiary": "#ffb784",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#100d16",
+                        "error-container": "#93000a",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#d2bbff",
+                        "secondary-container": "#03b5d3",
+                        "on-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "inverse-surface": "#e8dfee",
+                        "surface-container-highest": "#37333e",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-low": "#1d1a24",
+                        "on-primary-fixed": "#25005a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#3f008e",
+                        "surface-bright": "#3c3742",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e8dfee"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "code-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label-sm": ["13px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glow-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.2), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: theme('colors.secondary');
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 10px theme('colors.secondary');
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: theme('colors.surface-variant');
+            border-radius: 2px;
+        }
+        
+        .radio-card-input:checked + .radio-card-label {
+            border-color: theme('colors.secondary');
+            background: rgba(76, 215, 246, 0.05);
+        }
+        .radio-card-input:checked + .radio-card-label .radio-icon {
+            color: theme('colors.secondary');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row antialiased relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Glow -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary-container/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-secondary-container/10 blur-[120px] rounded-full"></div>
+</div>
+<!-- Mobile Top Navigation -->
+<nav class="md:hidden bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-sm flex justify-between items-center px-margin-mobile h-16">
+<div class="font-headline-md text-headline-md font-bold text-primary active:scale-95 transition-transform cursor-pointer">TQMEDIA</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer" data-icon="settings">settings</span>
+<img alt="Ảnh đại diện người dùng" class="w-8 h-8 rounded-full border border-white/20 object-cover" data-alt="A close up studio portrait of a young professional with clean neutral lighting against a dark grey background. The image is cropped to a small circle to serve as an avatar, fitting a sleek modern tech dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATC-UpIY2qTPM0PQ6-e-mKwNilqgyCAgKf0KiP4JcEZCGZLMnG3tyQmgrPuqP9B0SgFtclKtxkvyPgW-suPBLOWlBmL_XDmJKbEwFycxSoPObg0fc8EM9aCYihjki6WftS889VK8I0XdoFUHIQAkSm-tvvz1V9bEIf_iLhQ96xRwCjw7JSi01PSXtEhQgOIw3G3r14S12aIpHWykZOH92_az3Z01yIHXyvAI-AjNTtQbBcj5YOtku5R8xU1buvjxQnrFkdFwu4Q9-K"/>
+</div>
+</nav>
+<!-- Desktop Sidebar Navigation -->
+<aside class="hidden md:flex flex-col bg-surface-container/90 backdrop-blur-xl fixed left-0 h-full w-64 border-r border-white/10 shadow-lg py-6 gap-2 z-40">
+<!-- Brand Header -->
+<div class="px-6 pb-6 mb-2 border-b border-white/5 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+</div>
+<div>
+<h1 class="font-headline-md text-[20px] font-bold text-primary tracking-tight">TQMEDIA</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 mt-1">Marketing cao cấp</p>
+</div>
+</div>
+<!-- Main Nav -->
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 rounded-lg font-label-sm text-label-sm group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+                Bảng điều khiển
+            </a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary border-l-4 border-primary bg-primary/10 shadow-[0_0_15px_rgba(124,58,237,0.1)] rounded-r-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="apps" data-weight="fill" style="font-variation-settings: 'FILL' 1;">apps</span>
+                Dịch vụ
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 rounded-lg font-label-sm text-label-sm group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors" data-icon="trending_up">trending_up</span>
+                Thống kê
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 rounded-lg font-label-sm text-label-sm group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors" data-icon="school">school</span>
+                Khóa học
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 rounded-lg font-label-sm text-label-sm group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors" data-icon="folder_open">folder_open</span>
+                Tài nguyên
+            </a>
+</nav>
+<!-- CTA & Footer Nav -->
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full py-2.5 bg-gradient-to-r from-primary-container to-inverse-primary text-on-primary-container rounded-lg font-label-sm text-label-sm font-semibold shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all duration-300 transform hover:-translate-y-0.5">
+                Nâng cấp ngay
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 rounded-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+                    Hỗ trợ
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 rounded-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+                    Cài đặt
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full md:ml-64 pt-20 md:pt-10 px-margin-mobile md:px-gutter max-w-max-width mx-auto pb-24 z-10 relative">
+<!-- Page Header -->
+<header class="mb-10">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[28px] text-primary" data-icon="subscriptions" data-weight="fill" style="font-variation-settings: 'FILL' 1;">subscriptions</span>
+</div>
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold text-on-surface tracking-tight">Dịch vụ TikTok</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Tăng trưởng tương tác tự động, an toàn và nhanh chóng.</p>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Service Selection -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Service Type Bento Grid -->
+<div class="bg-surface-container/60 backdrop-blur-md rounded-2xl p-6 border border-white/5 glow-border">
+<h3 class="font-headline-md text-[18px] font-semibold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="category">category</span>
+                        Loại dịch vụ
+                    </h3>
+<div class="grid grid-cols-2 gap-3" id="service-types">
+<!-- Type: View -->
+<label class="cursor-pointer relative group">
+<input checked="" class="peer sr-only" name="service_type" onchange="updateService('view')" type="radio" value="view"/>
+<div class="rounded-xl border border-outline-variant bg-surface-dim p-4 peer-checked:border-primary peer-checked:bg-primary/10 transition-all duration-200 group-hover:border-primary/50 text-center">
+<span class="material-symbols-outlined block text-[24px] mb-2 text-on-surface-variant peer-checked:text-primary transition-colors" data-icon="visibility">visibility</span>
+<span class="font-label-sm text-label-sm text-on-surface block">Tăng View</span>
+</div>
+</label>
+<!-- Type: Like -->
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="service_type" onchange="updateService('like')" type="radio" value="like"/>
+<div class="rounded-xl border border-outline-variant bg-surface-dim p-4 peer-checked:border-primary peer-checked:bg-primary/10 transition-all duration-200 group-hover:border-primary/50 text-center">
+<span class="material-symbols-outlined block text-[24px] mb-2 text-on-surface-variant peer-checked:text-primary transition-colors" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm text-on-surface block">Tăng Like</span>
+</div>
+</label>
+<!-- Type: Follow -->
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="service_type" onchange="updateService('follow')" type="radio" value="follow"/>
+<div class="rounded-xl border border-outline-variant bg-surface-dim p-4 peer-checked:border-primary peer-checked:bg-primary/10 transition-all duration-200 group-hover:border-primary/50 text-center">
+<span class="material-symbols-outlined block text-[24px] mb-2 text-on-surface-variant peer-checked:text-primary transition-colors" data-icon="person_add">person_add</span>
+<span class="font-label-sm text-label-sm text-on-surface block">Tăng Follow</span>
+</div>
+</label>
+<!-- Type: Comment -->
+<label class="cursor-pointer relative group">
+<input class="peer sr-only" name="service_type" onchange="updateService('comment')" type="radio" value="comment"/>
+<div class="rounded-xl border border-outline-variant bg-surface-dim p-4 peer-checked:border-primary peer-checked:bg-primary/10 transition-all duration-200 group-hover:border-primary/50 text-center">
+<span class="material-symbols-outlined block text-[24px] mb-2 text-on-surface-variant peer-checked:text-primary transition-colors" data-icon="forum">forum</span>
+<span class="font-label-sm text-label-sm text-on-surface block">Auto Comment</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Server Selection -->
+<div class="bg-surface-container/60 backdrop-blur-md rounded-2xl p-6 border border-white/5 glow-border">
+<h3 class="font-headline-md text-[18px] font-semibold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="dns">dns</span>
+                        Chọn Server
+                    </h3>
+<div class="space-y-3" id="server-list">
+<!-- Servers populated by JS -->
+</div>
+</div>
+</div>
+<!-- Right Column: Order Form & Summary -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container/80 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 glow-border shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] relative">
+<form class="space-y-6" id="order-form">
+<!-- URL Input -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2" for="video-url">URL Video / Profile</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="link">link</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 bg-surface-dim border border-outline-variant rounded-lg text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors font-body-md text-body-md sm:text-sm" id="video-url" placeholder="https://www.tiktok.com/@username/video/..." type="text"/>
+</div>
+</div>
+<!-- Quantity Slider/Input -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant" for="quantity-slider">Số lượng</label>
+<input class="w-24 px-2 py-1 bg-surface-dim border border-outline-variant rounded text-right text-on-surface focus:border-secondary focus:outline-none font-code-sm text-code-sm" id="quantity-input" max="100000" min="100" oninput="syncQuantity(this.value)" type="number" value="1000"/>
+</div>
+<input class="w-full mt-2" id="quantity-slider" max="100000" min="100" oninput="syncQuantity(this.value)" step="100" type="range" value="1000"/>
+<div class="flex justify-between text-xs text-on-surface-variant/60 mt-1 font-code-sm">
+<span>Min: <span id="min-qty">100</span></span>
+<span>Max: <span id="max-qty">100k</span></span>
+</div>
+</div>
+<!-- Payment Method -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-3">Phương thức thanh toán</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only radio-card-input" name="payment" type="radio" value="balance"/>
+<div class="radio-card-label rounded-lg border border-outline-variant bg-surface-dim py-3 px-4 flex items-center gap-2 transition-all duration-200">
+<span class="material-symbols-outlined radio-icon text-on-surface-variant text-[18px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-on-surface">Số dư Web</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only radio-card-input" name="payment" type="radio" value="bank"/>
+<div class="radio-card-label rounded-lg border border-outline-variant bg-surface-dim py-3 px-4 flex items-center gap-2 transition-all duration-200">
+<span class="material-symbols-outlined radio-icon text-on-surface-variant text-[18px]" data-icon="account_balance">account_balance</span>
+<span class="font-label-sm text-label-sm text-on-surface">Chuyển khoản</span>
+</div>
+</label>
+<label class="cursor-pointer relative opacity-50 cursor-not-allowed" title="Bảo trì">
+<input class="peer sr-only radio-card-input" disabled="" name="payment" type="radio" value="momo"/>
+<div class="radio-card-label rounded-lg border border-outline-variant bg-surface-dim py-3 px-4 flex items-center gap-2">
+<span class="material-symbols-outlined radio-icon text-on-surface-variant text-[18px]" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm text-on-surface">Ví MoMo</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Summary & Total -->
+<div class="bg-surface-container-highest rounded-xl p-5 border border-white/5 mt-8">
+<div class="flex justify-between items-center mb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Đơn giá:</span>
+<span class="font-code-sm text-code-sm text-on-surface"><span id="unit-price">0</span> đ</span>
+</div>
+<div class="flex justify-between items-center mb-4">
+<span class="font-body-md text-body-md text-on-surface-variant">Số lượng:</span>
+<span class="font-code-sm text-code-sm text-on-surface" id="summary-qty">1,000</span>
+</div>
+<div class="h-px w-full bg-white/10 mb-4"></div>
+<div class="flex justify-between items-end">
+<span class="font-headline-md text-[18px] text-on-surface">Tổng thanh toán:</span>
+<span class="font-display-lg-mobile text-[28px] font-bold text-secondary" style="text-shadow: 0 0 20px rgba(76,215,246,0.4);"><span id="total-price">0</span> đ</span>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-4 mt-4 bg-primary text-on-primary rounded-xl font-label-sm text-[15px] font-bold uppercase tracking-widest hover:bg-inverse-primary transition-all duration-300 shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_35px_rgba(124,58,237,0.6)] flex items-center justify-center gap-2 relative overflow-hidden group" type="button">
+<span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+<span class="material-symbols-outlined text-[20px]" data-icon="rocket_launch">rocket_launch</span>
+                            Đặt hàng ngay
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer from JSON (Simplified for layout fit, hidden on mobile to avoid cluttering bottom nav if existed, but requested layout is Sidebar+Main) -->
+<footer class="md:ml-64 bg-surface-container-lowest w-full py-8 border-t border-white/5 z-10 relative mt-auto hidden md:block">
+<div class="max-w-max-width mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-[14px] text-on-surface-variant">© 2024 TQMEDIA. Tất cả quyền được bảo lưu.</p>
+<div class="flex gap-6">
+<a class="font-body-md text-[14px] text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Về chúng tôi</a>
+<a class="font-body-md text-[14px] text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Điều khoản</a>
+<a class="font-body-md text-[14px] text-on-surface-variant hover:text-secondary transition-colors opacity-100 hover:opacity-80" href="#">Bảo mật</a>
+</div>
+</div>
+</footer>
+<script>
+        // Fake Data for Services
+        const servicesData = {
+            view: [
+                { id: 'sv1', name: 'Server 1 - View Nhanh', price: 2, desc: 'Tốc độ 10k-50k/ngày, không tụt', min: 100, max: 1000000 },
+                { id: 'sv2', name: 'Server 2 - View Kéo Đề Xuất', price: 5, desc: 'Tốc độ tự nhiên, hỗ trợ lên xu hướng', min: 1000, max: 500000, hot: true }
+            ],
+            like: [
+                { id: 'sv3', name: 'Server 1 - Like Việt Thực', price: 25, desc: 'Tài khoản VN, có avatar', min: 50, max: 20000 },
+                { id: 'sv4', name: 'Server 2 - Like Ngoại Siêu Rẻ', price: 10, desc: 'Tài khoản quốc tế, tốc độ cao', min: 100, max: 50000 }
+            ],
+            follow: [
+                { id: 'sv5', name: 'Server 1 - Follow Việt VIP', price: 80, desc: 'Bảo hành 30 ngày', min: 100, max: 10000 },
+            ],
+            comment: [
+                { id: 'sv6', name: 'Server 1 - Tự soạn nội dung', price: 150, desc: 'Tài khoản VN chất lượng cao', min: 10, max: 1000 }
+            ]
+        };
+
+        let currentServiceType = 'view';
+        let currentServer = null;
+
+        function updateService(type) {
+            currentServiceType = type;
+            const servers = servicesData[type];
+            const serverList = document.getElementById('server-list');
+            serverList.innerHTML = '';
+
+            servers.forEach((srv, index) => {
+                const isChecked = index === 0 ? 'checked' : '';
+                if(index === 0) currentServer = srv; // default to first
+
+                const hotBadge = srv.hot ? `<span class="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold px-2 py-0.5 rounded ml-2 uppercase">Hot</span>` : '';
+
+                const html = `
+                    <label class="cursor-pointer relative block">
+                        <input type="radio" name="server_select" value="${srv.id}" class="peer sr-only radio-card-input" ${isChecked} onchange="selectServer('${srv.id}')">
+                        <div class="radio-card-label rounded-xl border border-outline-variant bg-surface-dim p-4 transition-all duration-200 hover:border-outline flex justify-between items-start group">
+                            <div class="flex gap-3">
+                                <div class="mt-0.5">
+                                    <div class="w-4 h-4 rounded-full border-2 border-outline-variant peer-checked:border-secondary flex items-center justify-center transition-colors">
+                                        <div class="w-2 h-2 rounded-full bg-secondary opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-label-sm text-[14px] text-on-surface font-semibold flex items-center">
+                                        ${srv.name} ${hotBadge}
+                                    </div>
+                                    <div class="font-body-md text-[12px] text-on-surface-variant/70 mt-1">${srv.desc}</div>
+                                    <div class="font-code-sm text-[11px] text-on-surface-variant/50 mt-2">Min: ${srv.min} - Max: ${srv.max}</div>
+                                </div>
+                            </div>
+                            <div class="font-code-sm text-secondary font-semibold bg-secondary/10 px-2 py-1 rounded">
+                                ${srv.price}đ
+                            </div>
+                        </div>
+                    </label>
+                `;
+                serverList.insertAdjacentHTML('beforeend', html);
+            });
+
+            // Re-bind radio inputs visually (since we construct custom radio visual above via peer-checked, it works automatically in CSS, but we need JS event to trigger state update)
+            updateLimitsAndPrice();
+        }
+
+        function selectServer(id) {
+            const servers = servicesData[currentServiceType];
+            currentServer = servers.find(s => s.id === id);
+            updateLimitsAndPrice();
+        }
+
+        function syncQuantity(val) {
+            let num = parseInt(val);
+            if(isNaN(num)) num = currentServer ? currentServer.min : 100;
+            
+            document.getElementById('quantity-input').value = num;
+            document.getElementById('quantity-slider').value = num;
+            calculateTotal();
+        }
+
+        function updateLimitsAndPrice() {
+            if(!currentServer) return;
+            
+            const min = currentServer.min;
+            const max = currentServer.max;
+            
+            const slider = document.getElementById('quantity-slider');
+            const input = document.getElementById('quantity-input');
+            
+            slider.min = min;
+            slider.max = max;
+            input.min = min;
+            input.max = max;
+
+            document.getElementById('min-qty').innerText = formatNumber(min);
+            document.getElementById('max-qty').innerText = formatNumber(max);
+            document.getElementById('unit-price').innerText = currentServer.price;
+
+            // Ensure current val is within bounds
+            let currentVal = parseInt(input.value);
+            if(currentVal < min) currentVal = min;
+            if(currentVal > max) currentVal = max;
+            syncQuantity(currentVal);
+        }
+
+        function calculateTotal() {
+            if(!currentServer) return;
+            const qty = parseInt(document.getElementById('quantity-input').value) || 0;
+            const total = qty * currentServer.price;
+            
+            document.getElementById('summary-qty').innerText = formatNumber(qty);
+            
+            // Animate number change slightly
+            const totalEl = document.getElementById('total-price');
+            totalEl.style.opacity = '0.5';
+            setTimeout(() => {
+                totalEl.innerText = formatNumber(total);
+                totalEl.style.opacity = '1';
+            }, 150);
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            updateService('view');
+        });
+        
+    </script>
+</body></html>

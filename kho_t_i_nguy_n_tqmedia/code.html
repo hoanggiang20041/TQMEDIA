@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tài nguyên - TQMEDIA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container": "#221e28",
+                        "on-tertiary": "#4f2500",
+                        "on-primary-container": "#ede0ff",
+                        "surface-dim": "#15121b",
+                        "on-tertiary-container": "#ffe0cd",
+                        "surface-variant": "#37333e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#7c3aed",
+                        "outline": "#958da1",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#00424e",
+                        "surface-container-high": "#2c2833",
+                        "surface": "#15121b",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary": "#4cd7f6",
+                        "on-surface-variant": "#ccc3d8",
+                        "primary-fixed": "#eaddff",
+                        "on-secondary-fixed": "#001f26",
+                        "tertiary-container": "#a15100",
+                        "outline-variant": "#4a4455",
+                        "inverse-primary": "#732ee4",
+                        "background": "#15121b",
+                        "secondary-fixed": "#acedff",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "primary": "#d2bbff",
+                        "tertiary": "#ffb784",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container-lowest": "#100d16",
+                        "error-container": "#93000a",
+                        "on-secondary": "#003640",
+                        "surface-tint": "#d2bbff",
+                        "secondary-container": "#03b5d3",
+                        "on-surface": "#e8dfee",
+                        "inverse-on-surface": "#332f39",
+                        "inverse-surface": "#e8dfee",
+                        "surface-container-highest": "#37333e",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-low": "#1d1a24",
+                        "on-primary-fixed": "#25005a",
+                        "on-tertiary-fixed": "#301400",
+                        "on-primary": "#3f008e",
+                        "surface-bright": "#3c3742",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e8dfee"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "max-width": "1440px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "code-sm": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Geist"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "code-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label-sm": ["13px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex selection:bg-primary/30 selection:text-primary-fixed">
+<!-- Mobile TopNavBar -->
+<nav class="md:hidden bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-sm flex justify-between items-center px-margin-mobile h-16 w-full max-w-max-width mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-headline-md text-headline-md">menu</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">TQMEDIA</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform">search</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-95 transition-transform">notifications</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-white/10 overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">person</span>
+</div>
+</div>
+</nav>
+<!-- Desktop SideNavBar -->
+<aside class="hidden md:flex bg-surface-container/90 backdrop-blur-xl text-primary font-label-sm text-label-sm fixed left-0 h-full w-64 border-r border-white/10 shadow-lg flex-col py-6 gap-2 z-40">
+<div class="px-6 mb-8 flex flex-col gap-1">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">TQMEDIA</span>
+<span class="text-on-surface-variant opacity-70">Marketing cao cấp</span>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-2">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Bảng điều khiển</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">apps</span>
+<span>Dịch vụ</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Thống kê</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Khóa học</span>
+</a>
+<!-- Active -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary border-l-4 border-primary bg-primary/10 shadow-[0_0_15px_rgba(124,58,237,0.2)] rounded-r-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+<span>Tài nguyên</span>
+</a>
+</nav>
+<div class="px-6 mt-auto flex flex-col gap-2">
+<button class="w-full bg-primary-container text-on-primary-container py-2.5 rounded-lg hover:brightness-110 transition-all font-label-sm text-label-sm shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                Nâng cấp ngay
+            </button>
+</div>
+<nav class="flex flex-col gap-1 px-2 mt-4 border-t border-white/5 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Hỗ trợ</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-200 cursor-pointer active:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-h-screen pt-16 md:pt-0 md:ml-64 relative">
+<!-- Subtle background glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="max-w-max-width mx-auto w-full p-margin-mobile md:p-margin-desktop flex flex-col gap-8">
+<!-- Page Header & Search -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex flex-col gap-2">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface tracking-tight">Thư viện <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Tài nguyên</span></h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Khám phá và tải xuống các công cụ, template và tài liệu hỗ trợ chiến dịch marketing của bạn.</p>
+</div>
+<div class="relative w-full md:w-96 group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant group-focus-within:text-secondary transition-colors">search</span>
+</div>
+<input class="w-full bg-surface-container-high/50 border border-outline-variant/30 text-on-surface font-body-md text-body-md rounded-xl pl-12 pr-4 py-3 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 transition-all backdrop-blur-sm placeholder:text-outline-variant" placeholder="Tìm kiếm tài nguyên..." type="text"/>
+<div class="absolute inset-y-0 right-2 flex items-center">
+<button class="bg-surface-variant hover:bg-white/10 text-on-surface-variant p-1.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Filters -->
+<section class="flex items-center gap-3 overflow-x-auto hide-scrollbar pb-2">
+<button class="whitespace-nowrap px-5 py-2 rounded-full font-label-sm text-label-sm bg-primary/20 text-primary border border-primary/50 shadow-[0_0_10px_rgba(124,58,237,0.1)] transition-all">Tất cả</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container border border-white/5 text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all">Ebook</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container border border-white/5 text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all">Preset</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container border border-white/5 text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all">Công cụ</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container border border-white/5 text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all">Template</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full font-label-sm text-label-sm bg-surface-container border border-white/5 text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all">Script</button>
+</section>
+<!-- Favorites Row -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+                        Đã lưu gần đây
+                    </h2>
+<a class="font-label-sm text-label-sm text-secondary hover:text-secondary-fixed transition-colors" href="#">Xem tất cả</a>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
+<!-- Fav Card 1 -->
+<div class="min-w-[280px] bg-surface-container/60 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-center gap-4 snap-start hover:bg-surface-container transition-colors group cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-16 h-16 rounded-lg bg-surface-variant overflow-hidden shrink-0">
+<img alt="Resource thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A sleek, modern 3D icon of a social media notification bell floating in a dark, glossy space. The bell is illuminated by soft neon cyan and purple rim lighting, reflecting the high-end digital agency aesthetic. The background is a deep charcoal gray with subtle holographic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABMZqOw8f6Rsiw9L8RiPwXulEKVA3CXy4cSq71Iq0GGn1vpCOwjjMRDT3s0gtpBcyLm6z3QLBDfGU0l3I-F2j_JjgBzBWboxctT9QUF9j0o_8CEniW_-qzCNy4fLFn8JrE0KngJeMyub7vtIPvjm3vQPrt6D1rDK_-zHronBc6ry9Vmn0aCaG60z1Jj5_3xikTpZGyQ57sKDjQlnQOu_o_5cFinYX6FsdahbSs-uH9UFCX7q1IfcZvG4aVvUTPoVXIo_u7VHE8xnW_"/>
+</div>
+<div class="flex flex-col gap-1 z-10">
+<span class="font-label-sm text-label-sm text-secondary px-2 py-0.5 rounded-full bg-secondary/10 w-fit">Template</span>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1">Bộ mẫu Content Social</h3>
+</div>
+</div>
+<!-- Fav Card 2 -->
+<div class="min-w-[280px] bg-surface-container/60 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-center gap-4 snap-start hover:bg-surface-container transition-colors group cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-16 h-16 rounded-lg bg-surface-variant overflow-hidden shrink-0">
+<img alt="Resource thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A high-tech data analytics dashboard visualized abstractly. Glowing neon data lines in cyan and purple sweep across a dark, reflective glass surface. The scene conveys complex data processing with a clean, premium visual language typical of advanced SaaS platforms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNkfEydzgZRcckGkx38QI-Tn8677X-otvkQ73LNHilxCWDhCkThX99tKhbnb9YSSWnNQVkxlx0elPdgJYzMBC1zQt1dxeoQRfGv7gVuHIEFD8BLTs6O0T81Q95M9aP2Uk9gJ5xzvTV6PHzrW1yOACN7itWwHYe-9GT8fMRtePlbQzHwhTPAiswkYW4H_sYTY2BtbVAZeo0jyjlUCvRyIrsCdF9zJEpmImcGkk_DQ3oZWRxnN1OQcnVBWNj3KXl3-myW33HrPYYTHmC"/>
+</div>
+<div class="flex flex-col gap-1 z-10">
+<span class="font-label-sm text-label-sm text-primary px-2 py-0.5 rounded-full bg-primary/10 w-fit">Script</span>
+<h3 class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1">Auto-reply Chatbot V2</h3>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-white/5"/>
+<!-- Main Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-12">
+<!-- Card 1 -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden group hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-variant">
+<img alt="Ebook thumbnail" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="A sophisticated business strategy document cover design. Minimalist typography on a dark, frosted glass background, intersected by a sharp, glowing diagonal line in electric purple. The lighting is moody and focused, highlighting the premium, exclusive nature of the content." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAet9mVkQLtWDmd47omwO4YINhz-UOgCM4QIchk7QNZzSG2GesiaVip2guA5awtOhSjDGyrw_9GSuQNUtYTAwkurHGStlbwJKczJn9FmxqFSYXZ1T6bGsFyZREDBLKZroDsDcEHxqAitgsDuKCoJCCAIlH1-UDariC5CeWiS5puoM8s2zqP9-bQ10Aow15BHqdbovByt-fnlVQurj2srBek5e68pViNPm-ZvPp5zAXWx9GIB8VRWNLD9Z-SVn60xLW1alrEYZt4HX7d"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3">
+<span class="font-label-sm text-label-sm text-tertiary px-2.5 py-1 rounded-full bg-tertiary-container/30 backdrop-blur-md border border-tertiary/20">Ebook</span>
+</div>
+<button class="absolute top-3 right-3 p-1.5 rounded-full bg-black/40 backdrop-blur-md text-on-surface-variant hover:text-white hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1 gap-4">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors line-clamp-2">Cẩm nang Tối ưu Ads 2024</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 text-sm">Hướng dẫn chi tiết cách thiết lập và tối ưu chiến dịch quảng cáo đa kênh hiệu quả nhất.</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span> 1.2k
+                            </span>
+<button class="bg-white/5 hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm px-4 py-2 rounded-lg border border-white/10 hover:border-primary transition-all flex items-center gap-2">
+                                Tải xuống
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden group hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-variant">
+<img alt="Preset thumbnail" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="Abstract fluid gradient background serving as a thumbnail for a color preset pack. Swirling liquids in deep indigo, electric blue, and magenta. The texture is smooth and glassy, emitting a luminous quality typical of modern UI design systems." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOaS3ieccIERfozq06rHJvFsiZgAY0FE_JtuTTz2kFiM-W6-HnaafkOif42AJyQ53J6ZdsxmR4N9Fs-2SHhr9XzDcBa2CHvtEK0Z6Wo3XFt9aAFQd13mHDqBq6jgWhogmBuE2fGZljL3GdcomqAYw6GjgH5OxAjHU-Z-Hoxvv5CjtW45wxW3kEVtt_WUR6LoalvAT2uVOgwtfKP11505ZaS1Jy6Nzh6zFzLP0eRoYjE4KDF7RHzH7JSjuPt_RXmOdXZByPOB4Huef_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3">
+<span class="font-label-sm text-label-sm text-secondary px-2.5 py-1 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">Preset</span>
+</div>
+<button class="absolute top-3 right-3 p-1.5 rounded-full bg-black/40 backdrop-blur-md text-on-surface-variant hover:text-white hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1 gap-4">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors line-clamp-2">Dark Mode UI Color Palette</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 text-sm">Bộ màu sắc chuyên biệt cho thiết kế giao diện tối, tối ưu độ tương phản.</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span> 856
+                            </span>
+<button class="bg-white/5 hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm px-4 py-2 rounded-lg border border-white/10 hover:border-primary transition-all flex items-center gap-2">
+                                Tải xuống
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden group hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col relative">
+<!-- New Badge -->
+<div class="absolute -right-12 top-6 bg-secondary text-on-secondary font-label-sm text-[10px] font-bold py-1 px-12 rotate-45 z-20 shadow-lg">MỚI</div>
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-variant">
+<img alt="Script thumbnail" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="A close-up view of glowing code lines on a dark monitor screen. The syntax highlighting uses bright cyan, neon pink, and yellow against a black background. The depth of field is shallow, creating a tech-focused, cyberpunk-inspired atmosphere for a developer script resource." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxzs_3bWH1WF_-mdjxazH8FJWPtFAqiZ6uTQUSN5gA3XGrqsyHE-CJG1cpxclYi8iwuEakladsKc0eawnZqvEVtY7pORAy0D55IRUnYXer5Lc6ATozqst6zfF3GIK_AtClDcaOM8r9XF1YxqpwQC75s8d7z_wmKFuB_sGFE5m1TuSbfEGEd-c2a5In3yQ5pe4aGAbilHcsJ8px2fBrOaxZxoHJYSb7_vHeg9m4hI2Ik5tkR5NL_djlf-fDHDXKwPV2pdDIPHpunnds"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3">
+<span class="font-label-sm text-label-sm text-primary px-2.5 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30">Script</span>
+</div>
+<button class="absolute top-3 right-3 p-1.5 rounded-full bg-black/40 backdrop-blur-md text-on-surface-variant hover:text-white hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1 gap-4">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors line-clamp-2">Tracking Pixel Manager Pro</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 text-sm">Script tự động chèn và quản lý pixel tracking cho nhiều nền tảng trên một trang.</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span> 342
+                            </span>
+<button class="bg-white/5 hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm px-4 py-2 rounded-lg border border-white/10 hover:border-primary transition-all flex items-center gap-2">
+                                Tải xuống
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden group hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col">
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-variant">
+<img alt="Template thumbnail" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" data-alt="A minimalist workspace setup featuring a sleek laptop on a dark desk. The screen displays a grid-based Notion template with glowing accents. The lighting is dim, side-lit by a warm desk lamp, emphasizing a productive, focused, and high-end professional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ_N6owI3roul_adR6vxmvMCwiN1WQQ034fD2xsdc_gWq99jrZI6HcROcM-QUxctWHZ5s1pzg_S6YtX7OMJHG2-Lo7aGacbUTGMkBxkUe5k0hA0NR-VFbNlPYAecwojVP2kawiNzELve8dHUdlgDtuSn5MV4iTHzvlPd_O7ZGXcMKJNUZSpMEbNDOu7wjdVBFjoXxldOUV30BSWZNGXzpXMc2tNv25fxI-m3Wtc7DiRmE0o2cunocehqLUcm5ijFCwKp4WKEVgg86e"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3">
+<span class="font-label-sm text-label-sm text-secondary px-2.5 py-1 rounded-full bg-secondary-container/30 backdrop-blur-md border border-secondary/20">Template</span>
+</div>
+<button class="absolute top-3 right-3 p-1.5 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1 gap-4">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors line-clamp-2">Notion Agency Dashboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 text-sm">Hệ thống quản lý dự án và khách hàng toàn diện dành riêng cho Digital Agency.</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span> 2.1k
+                            </span>
+<button class="bg-white/5 hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm px-4 py-2 rounded-lg border border-white/10 hover:border-primary transition-all flex items-center gap-2">
+                                Tải xuống
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>
