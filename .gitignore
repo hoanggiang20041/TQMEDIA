@@ -57,3 +57,5 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+TQMEDIA_CONFIG_AND_DATABASE/
